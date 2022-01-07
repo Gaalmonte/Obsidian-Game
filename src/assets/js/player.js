@@ -71,43 +71,46 @@ export default class Player extends Entity{
     update()
     {
     const {keys} = this
-    const speed = 100
-    this.body.setVelocity(0)
+    // const speed = 100
+    // this.body.setVelocity(0)
 
         // GO LEFT OR RIGHT INPUT
     if (keys.left.isDown || keys.a.isDown ) {
-        this.body.setVelocityX(-speed)
+        this.body.setVelocityX(-160)
+        this.anims.play('walkleft', true)
         } else if (keys.right.isDown || keys.d.isDown) {
-            this.body.setVelocityX(speed)
+            this.body.setVelocityX(160)
+            this.anims.play('walkright', true)
         }
 
         // GO UP OR DOWN INPUT
     if (keys.up.isDown || keys.w.isDown) {
-        this.body.setVelocityY(-speed)
+        this.body.setVelocityY(-330)
+        this.anims.play('up', true)
         }else if (keys.down.isDown || keys.s.isDown) {
-        this.body.setVelocityY(speed)
+        this.anims.play('down', true)
         }
 
-        // ADJUSTS SIDEWAY SPEED
-    this.body.velocity.normalize().scale(speed)
+    //     // ADJUSTS SIDEWAY SPEED
+    // this.body.velocity.normalize().scale(speed)
 
         // ANIMATION ORIENTATION !
         // IF THE CHARACTER IS GOING LEFT OR RIGHT
-    if (keys.left.isDown || keys.a.isDown) {
-        this.anims.play('walkleft', true)
-        } else if (keys.right.isDown || keys.d.isDown) {
-        this.anims.play('walkright', true)
-        } 
+    // if (keys.left.isDown || keys.a.isDown) {
+    //     this.anims.play('walkleft', true)
+    //     } else if (keys.right.isDown || keys.d.isDown) {
+    //     this.anims.play('walkright', true)
+    //     } 
         // IF THE CHARACTER IS GOING UP OR DOWN
-    if (keys.up.isDown || keys.w.isDown) {
-        this.anims.play('up', true)
-        } else if (keys.down.isDown || keys.s.isDown) {
-        this.anims.play('down', true)
-        } 
+    // if (keys.up.isDown || keys.w.isDown) {
+    //     this.anims.play('up', true)
+    //     } else if (keys.down.isDown || keys.s.isDown) {
+    //     this.anims.play('down', true)
+    //     } 
         // IF THE CHARACTER IS NOT MOVING, GO BACK TO IDLE 
-    if(this.body.velocity.y === 0 && this.body.velocity.x === 0){
-        this.anims.play('standing', true)
-    }
+    // if(this.body.velocity.y === 0 && this.body.velocity.x === 0){
+    //     this.anims.play('standing', true)
+    // }
    
     }
 }
